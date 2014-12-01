@@ -45,6 +45,7 @@ int main() {
   
     WDTCTL = WDTPW + WDTHOLD; // Stop WDT
     
+    // Serial code is dependent on this value
     BCSCTL1 = CALBC1_1MHZ; // Set DCO to 1MHz
     DCOCTL = CALDCO_1MHZ; // Set DCO to 1MHz
     
