@@ -16,6 +16,8 @@ volatile int ADCSampled;
 
 int sampleADC(int adc) {
     // TODO: select adc
+    ADC10CTL1 &= INCH_0;
+    ADC10CTL1 |= adc;
     int ret = 0;
     ADCSampled = 0;
     while (!ADCSampled) {
@@ -23,6 +25,7 @@ int sampleADC(int adc) {
         __bis_SR_register(CPUOFF + GIE);
         ret = ADC10MEM;
     }
+    return ret;
 }
 
 // ADC10 interrupt service routine

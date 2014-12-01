@@ -48,7 +48,6 @@ int main() {
     BCSCTL1 = CALBC1_1MHZ; // Set DCO to 1MHz
     DCOCTL = CALDCO_1MHZ; // Set DCO to 1MHz
     
-    
     setupADCs();
     inputLoop();
 }
