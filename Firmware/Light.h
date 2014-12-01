@@ -8,7 +8,7 @@
 #define INCH_LIGHT INCH_3
 
 int readLight();
-float calibrateLight(int voltage);
-void outputLight(float light);
+int calibrateLight(int voltage);
+void outputLight(int light);
 
 #endif
