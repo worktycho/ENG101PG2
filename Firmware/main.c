@@ -10,13 +10,6 @@
 void setHeater(float temp) {
 }
 
-int readRotation() {
-}
-int calibrateRPM(int RawRotationCount) {
-}
-void outputRPM(int RPM) {
-}
-
 void setMotor(int RPM) {
 }
 
