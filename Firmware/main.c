@@ -4,22 +4,10 @@
 
 
 #include "Light.h"
-
-int readTemp() {
-}
-float calibrateTemp(int voltage) {
-}
-void outputTemp(float temp) {
-}
+#include "pH.h"
+#include "Temp.h"
 
 void setHeater(float temp) {
-}
-
-int readpH() {
-}
-float calibratepH(int voltage) {
-}
-void outputpH(float pH) {
 }
 
 int readRotation() {
