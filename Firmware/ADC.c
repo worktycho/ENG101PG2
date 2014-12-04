@@ -3,6 +3,8 @@
 
 #include "ADC.h"
 #include "Light.h"
+#include "Temp.h"
+#include "pH.h"
 #include "Serial.h"
 
 #define BIT_VREF BIT4
@@ -10,7 +12,7 @@
 void setupADCs() {
     ADC10CTL0=SREF_1 + REFON + REFOUT + ADC10ON + ADC10SHT_3 + ADC10IE ; //1.5V ref, Ref on, Enable Ref Output, 64 clocks for sample
     ADC10CTL1= ADC10ON | ADC10DIV_3;
-    ADC10AE0 |= BIT_VREF + BIT_LIGHT;
+    ADC10AE0 |= BIT_VREF + BIT_LIGHT + BIT_TEMP + BIT_PH;
 }
 
 volatile int ADCSampled;
