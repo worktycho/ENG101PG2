@@ -1,24 +1,20 @@
 
 #include "msp430G2553.h"
 
-
-
 #include "Light.h"
 #include "pH.h"
 #include "Temp.h"
+#include "Motor.h"
 
-void setHeater(float temp) {
-}
+#define CHECKPOINT P1OUT |= BIT0
 
-void setMotor(int RPM) {
-}
 
 void inputLoop() {
-
   while (1) {
+    //WDTCTL = WDTCNTCL;
 
     int tempVoltage = readTemp();
-    float tempValue = calibrateTemp(tempVoltage);
+    int tempValue = calibrateTemp(tempVoltage);
     outputTemp(tempValue);
 
     int lightVoltage = readLight();
@@ -40,7 +36,7 @@ void inputLoop() {
 
 int main() {
 
-  WDTCTL = WDTPW + WDTHOLD; // Stop WDT
+  WDTCTL = WDTPW + WDTHOLD; // WDT_MDLY_32;
 
   // Serial code is dependent on this value
   BCSCTL1 = CALBC1_1MHZ; // Set DCO to 1MHz
@@ -51,8 +47,16 @@ int main() {
   P1DIR |= BIT0;
   P1OUT &= ~BIT0;
 
+
   setupADCs();
   setupUART();
+
+  setupRotation();
+
+  configureMotor();
+  configureHeater();
+
   inputLoop();
 }
+
 

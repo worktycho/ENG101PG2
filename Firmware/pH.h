@@ -3,8 +3,8 @@
 
 #include "msp430G2553.h"
 
-#define BIT_PH BIT7
-#define INCH_PH INCH_7
+#define BIT_PH BIT3
+#define INCH_PH INCH_3
 
 int readpH();
 int calibratepH(int voltage);
